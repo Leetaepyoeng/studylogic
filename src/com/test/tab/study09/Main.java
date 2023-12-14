@@ -3,7 +3,7 @@ package com.test.tab.study09;
 import java.util.*;
 public class Main {
 	public static void main(String[] args) {
-		//색종이
+		//색종이 aas
 		Scanner scan = new Scanner(System.in);
 		int numOfPaper = 0;
 		int x = 0;
