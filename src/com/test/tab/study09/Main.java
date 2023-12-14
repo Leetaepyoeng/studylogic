@@ -19,11 +19,9 @@ public class Main {
 			int xx = x + 10;
 			int yy = y + 10;
 			for(int j = y; j < yy; j++)
-				for(int i = x; i < xx; i++) {
+				for(int i = x; i < xx; i++)
 					arr[j][i] = true;
-				}
 		}
-		
 		for(int j = 0; j < nHeight; j++)
 			for(int i = 0; i < nWidth; i++)
 				if(arr[j][i] == true) cnt++;
