@@ -5,15 +5,15 @@ public class Main {
 	public static void main(String[] args) {
 		//달팽이는 올라가고 싶다 - 풀지 못함
 		//낮에 올라가는 시간 A 자면서 내려가는 시간 B 높이 V
-		Scanner in = new Scanner(System.in);
-		int up = in.nextInt();		// A
-		int down = in.nextInt();	// B
-		int length = in.nextInt(); 	// C
-		int day = (length - down) / (up - down);
-		// 나머지가 있을 경우 (잔여 블럭이 있을 경우)
-		if ((length - down) % (up - down) != 0)
-			day++;
-		System.out.println(day);
+//		Scanner in = new Scanner(System.in);
+//		int up = in.nextInt();		// A
+//		int down = in.nextInt();	// B
+//		int length = in.nextInt(); 	// C
+//		int day = (length - down) / (up - down);
+//		// 나머지가 있을 경우 (잔여 블럭이 있을 경우)
+//		if ((length - down) % (up - down) != 0)
+//			day++;
+//		System.out.println(day);
 		
 		
 		//분수찾기
@@ -104,16 +104,38 @@ public class Main {
 //			System.out.printf("%d %d %d %d\n", nQuarter[i], nDime[i], nNickel[i], nPenny[i]);
 		
 		
-		//진법 변환 2 == 일단 포기
+		//진법 변환 2 == 일단 포기 -> 재도전
+		//몫과 나머지를 구해서 몫은 다시 나누고 나머지는 앞으로 보내고
+		//나머지가 10 이상이면 대문자 알파벳으로 변환-계속 런타임 에러가 뜸
 //		Scanner scan = new Scanner(System.in);
-//		int num = scan.nextInt();
-//		int system = scan.nextInt();
-//		int rest = 0;
+//		int num = scan.nextInt(); //10진법
+//		int system = scan.nextInt(); //변환할 진법
+//		int rest = 0; //나머지
 //		String result = "";
 //		
-//		rest = num % system;
-//		num /= system;
-//		result = Integer.toString(rest) + result;
+//		while (true) {
+//			rest = num % system;
+//			if (num < system) {
+//				if (0 <= num && num < 10)
+//					result = String.format("%d", num) + result;
+//				else
+//					result = String.format("%c", (char) (num + 'A' - 10)) + result;
+//				break;
+//			}
+//			else if (0 <= rest && rest < 10)
+//				result = String.format("%d", rest) + result;
+//			else if (10 <= rest)
+//				result = String.format("%c", (char) (rest + 'A' - 10) + result);
+//			num /= system;
+//			// 10이 A가 되려면 10 + 55
+//		}
+		//인터넷에서 해당 함수를 찾음
+		//integer.toString(바꿀수, 바꿀진법)을 대문자로
+//		System.out.println(result);
+//		Scanner scanner = new Scanner(System.in);
+//		int a = scanner.nextInt();
+//		int b = scanner.nextInt();
+//		System.out.println(Integer.toString(a, b).toUpperCase());
 		
 		
 		//진법 변환 실패
