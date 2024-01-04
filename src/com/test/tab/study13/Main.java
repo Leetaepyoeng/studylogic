@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		//분해합
+		//분해합/
 		Scanner scan = new Scanner(System.in);
 		int num = scan.nextInt();
 		int val = 0;
