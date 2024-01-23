@@ -8,6 +8,36 @@ import java.util.StringTokenizer;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
+		//숫자 카드 2
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int skCnt, ranCnt;//상근의 숫자개수, 랜덤 숫자개수
+		StringTokenizer st; //문자열을 토큰으로 분리하려고
+		HashMap<String, Integer> owned = new HashMap<>();//해쉬맵 변수 owned 선언
+		skCnt = Integer.parseInt(br.readLine());
+		String[] skArr = new String[skCnt];
+		skArr = br.readLine().split(" ");//상근의 번호
+		
+		ranCnt = Integer.parseInt(br.readLine());//랜덤번호 개수
+		st = new StringTokenizer(br.readLine());//랜덤번호를 끊어서 저장
+		String[] dstNum = new String[ranCnt];
+		for (int i = 0; i < ranCnt; i++) {
+			String str = st.nextToken();
+			owned.put(str, 0);// owned HashMap에 key 값만 넣는 과정
+			dstNum[i] = str;// HashMap은 순서대로 저장하지 않아서 순서를 위해 배열로 저장
+		}
+		
+		for(int i = 0; i < skCnt; i++) {
+			String strNum = skArr[i];
+			if (owned.get(strNum) != null) 
+				owned.put(strNum, owned.get(strNum)+1);
+		}
+
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < ranCnt; i++) 
+			sb.append(owned.get(dstNum[i]) + " ");
+		System.out.println(sb);
+		
+		
 		//나는야 포켓몬 마스터 이다솜 시간초과 뜸 indexof 함수연산이 오래 걸린다 함. 자체 측정으로는 평균 40ms정도의 차이가 남(내 코드 240ms 밑의 코드 200ms)
 //		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //		StringTokenizer st = new StringTokenizer(br.readLine()); //문자열을 토큰으로 분리
