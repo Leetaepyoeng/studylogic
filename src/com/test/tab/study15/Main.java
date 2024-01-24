@@ -3,39 +3,87 @@ package com.test.tab.study15;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.StringTokenizer;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		//숫자 카드 2
+		//서로 다른 부분 문자열의 개수, substring을 사용
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int skCnt, ranCnt;//상근의 숫자개수, 랜덤 숫자개수
-		StringTokenizer st; //문자열을 토큰으로 분리하려고
-		HashMap<String, Integer> owned = new HashMap<>();//해쉬맵 변수 owned 선언
-		skCnt = Integer.parseInt(br.readLine());
-		String[] skArr = new String[skCnt];
-		skArr = br.readLine().split(" ");//상근의 번호
+		String str = br.readLine();
+		Set<String> set = new HashSet<>();
+		for(int start = 0; start <= str.length(); start++)
+			for(int end = start+1; end <= str.length(); end++)
+				set.add(str.substring(start, end));
+		System.out.println(set.size());
 		
-		ranCnt = Integer.parseInt(br.readLine());//랜덤번호 개수
-		st = new StringTokenizer(br.readLine());//랜덤번호를 끊어서 저장
-		String[] dstNum = new String[ranCnt];
-		for (int i = 0; i < ranCnt; i++) {
-			String str = st.nextToken();
-			owned.put(str, 0);// owned HashMap에 key 값만 넣는 과정
-			dstNum[i] = str;// HashMap은 순서대로 저장하지 않아서 순서를 위해 배열로 저장
-		}
 		
-		for(int i = 0; i < skCnt; i++) {
-			String strNum = skArr[i];
-			if (owned.get(strNum) != null) 
-				owned.put(strNum, owned.get(strNum)+1);
-		}
-
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < ranCnt; i++) 
-			sb.append(owned.get(dstNum[i]) + " ");
-		System.out.println(sb);
+		//대칭 차집합
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		int cntA = Integer.parseInt(st.nextToken());
+//		int cntB = Integer.parseInt(st.nextToken());
+//		int cntSize = cntA + cntB;//총 원소 개수
+//		st = new StringTokenizer(br.readLine());
+//		HashMap<String, Integer> hlist = new HashMap<>();
+//		for(int i = 0; i < cntA; i++)
+//			hlist.put(st.nextToken(), 0);
+//		st = new StringTokenizer(br.readLine());
+//		for(int i = 0; i < cntB; i++) 
+//			if(hlist.get(st.nextToken()) != null) 
+//				cntSize -= 2;
+//		System.out.println(cntSize);
+		
+		
+		
+		//듣보잡
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		int N = Integer.parseInt(st.nextToken());
+//		int M = Integer.parseInt(st.nextToken());
+//		HashMap<String, Integer> list = new HashMap<>();
+//		ArrayList<String> dstlist = new ArrayList<>();
+//		for(int i = 0; i < N; i++)
+//			list.put(br.readLine(), 0);
+//		
+//		for(int i = 0; i < M; i++) {
+//			String str = br.readLine();
+//			if(list.get(str) != null)
+//				dstlist.add(str);
+//		}
+//		Collections.sort(dstlist);//ArrayList 사전순으로 정렬
+//		System.out.println(dstlist.size());
+//        for (String s : dstlist)
+//            System.out.println(s);
+		
+		
+		//숫자 카드 2																																																								
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		int skCnt, ranCnt;//상근의 숫자개수, 랜덤 숫자개수
+//		StringTokenizer st; //문자열을 토큰으로 분리하려고
+//		HashMap<String, Integer> owned = new HashMap<>();//해쉬맵 변수 owned 선언
+//		skCnt = Integer.parseInt(br.readLine());
+//		String[] skArr = new String[skCnt];
+//		skArr = br.readLine().split(" ");//상근의 번호
+//		
+//		ranCnt = Integer.parseInt(br.readLine());//랜덤번호 개수
+//		st = new StringTokenizer(br.readLine());//랜덤번호를 끊어서 저장
+//		String[] dstNum = new String[ranCnt];
+//		for (int i = 0; i < ranCnt; i++) {
+//			String str = st.nextToken();
+//			owned.put(str, 0);// owned HashMap에 key 값만 넣는 과정
+//			dstNum[i] = str;// HashMap은 순서대로 저장하지 않아서 순서를 위해 배열로 저장
+//		}
+//		for(int i = 0; i < skCnt; i++) {
+//			String strNum = skArr[i];
+//			if (owned.get(strNum) != null) 
+//				owned.put(strNum, owned.get(strNum)+1);
+//		}
+//		StringBuilder sb = new StringBuilder();
+//		for (int i = 0; i < ranCnt; i++) 
+//			sb.append(owned.get(dstNum[i]) + " ");
+//		System.out.println(sb);
+		
 		
 		
 		//나는야 포켓몬 마스터 이다솜 시간초과 뜸 indexof 함수연산이 오래 걸린다 함. 자체 측정으로는 평균 40ms정도의 차이가 남(내 코드 240ms 밑의 코드 200ms)
