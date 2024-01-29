@@ -7,31 +7,76 @@ import java.util.Stack;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-		//괄호
+		//균형잡힌 세상
+		//소괄 스택1, 대괄 스택1, .이면 종료, 다음 행에 아무것도 없을때까지 읽어야함.
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
-		int cnt = Integer.parseInt(br.readLine());
+		Stack<Character> s = new Stack<>();//
+		String line;
 		
-		for(int i = 0; i < cnt; i++) {
-			Stack<String> stack = new Stack<String>();
-			String str = br.readLine();
-			for(int j = 0; j < str.length(); j++)
-				if(str.charAt(j) == '(') 
-					stack.push("(");
-				else
-					if(stack.isEmpty()) {
-						stack.push("error");
-						break;
+		while(true) {
+			line = br.readLine();
+			if(line.substring(0).equals(".")) break;
+			for(int i = 0; i < line.length(); i++) {
+				char ch = line.charAt(i);
+				if(ch == '(' || ch == '[')
+					s.push(ch);
+				else if(ch == ')' || ch == ']') {
+					if(ch == ')') {
+						if(s.isEmpty()) {
+							s.push('e');
+							break;
+						}
+						else if(s.peek().equals('[')) 
+							break;
+						else if(s.peek().equals('(')) 
+							s.pop();
+					}else if(ch == ']') {
+						if(s.isEmpty()) {
+							s.push('e');
+							break;
+						}
+						else if(s.peek().equals('(')) 
+							break;
+						else if(s.peek().equals('[')) 
+							s.pop();
 					}
-					else
-						stack.pop();
-			
-			if(stack.isEmpty())
-				sb.append("YES\n");
+				}
+			}
+			if(s.isEmpty())
+				sb.append("yes\n");
 			else
-				sb.append("NO\n");
+				sb.append("no\n");
+			s.clear();
 		}
 		System.out.println(sb);
+		
+		
+		//괄호
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringBuilder sb = new StringBuilder();
+//		int cnt = Integer.parseInt(br.readLine());
+//		
+//		for(int i = 0; i < cnt; i++) {
+//			Stack<String> stack = new Stack<String>();
+//			String str = br.readLine();
+//			for(int j = 0; j < str.length(); j++)
+//				if(str.charAt(j) == '(') 
+//					stack.push("(");
+//				else
+//					if(stack.isEmpty()) {
+//						stack.push("error");
+//						break;
+//					}
+//					else
+//						stack.pop();
+//			
+//			if(stack.isEmpty())
+//				sb.append("YES\n");
+//			else
+//				sb.append("NO\n");
+//		}
+//		System.out.println(sb);
 		
 		
 		
