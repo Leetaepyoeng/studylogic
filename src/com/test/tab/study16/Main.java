@@ -3,53 +3,102 @@ package com.test.tab.study16;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
+import java.util.StringTokenizer;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
+		//도키도키 간식드리미
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int cnt = Integer.parseInt(br.readLine());
+		int outNum = 1;
+		
+		Queue<Integer> q = new LinkedList<>();//선입선출
+		Stack<Integer> s = new Stack<>();//후입선출
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		for(int i = 0; i < cnt; i++)
+			q.add(Integer.parseInt(st.nextToken()));
+		
+		while(!q.isEmpty()) {
+			int num = q.peek();//데이터를 반환
+			if(num != outNum)
+				if(!s.isEmpty() && outNum == s.peek()) {//2번쨰 줄의 데이터랑 같은지
+					s.pop();
+					outNum++;
+				}
+				else {
+					s.push(num);
+					q.poll();
+				}
+			else {
+				outNum++;
+				q.poll();
+			}
+		}
+		cnt = s.size();
+		for(int i = 0; i < cnt; i++) {
+			int num = s.peek();
+			if(num == outNum) {
+				s.pop();
+				outNum++;
+			}
+			else 
+				break;
+		}
+		if(s.isEmpty())
+			System.out.println("Nice");
+		else
+			System.out.println("Sad");
+		
+		
+		
+		
 		//균형잡힌 세상
 		//소괄 스택1, 대괄 스택1, .이면 종료, 다음 행에 아무것도 없을때까지 읽어야함.
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
-		Stack<Character> s = new Stack<>();//
-		String line;
-		
-		while(true) {
-			line = br.readLine();
-			if(line.substring(0).equals(".")) break;
-			for(int i = 0; i < line.length(); i++) {
-				char ch = line.charAt(i);
-				if(ch == '(' || ch == '[')
-					s.push(ch);
-				else if(ch == ')' || ch == ']') {
-					if(ch == ')') {
-						if(s.isEmpty()) {
-							s.push('e');
-							break;
-						}
-						else if(s.peek().equals('[')) 
-							break;
-						else if(s.peek().equals('(')) 
-							s.pop();
-					}else if(ch == ']') {
-						if(s.isEmpty()) {
-							s.push('e');
-							break;
-						}
-						else if(s.peek().equals('(')) 
-							break;
-						else if(s.peek().equals('[')) 
-							s.pop();
-					}
-				}
-			}
-			if(s.isEmpty())
-				sb.append("yes\n");
-			else
-				sb.append("no\n");
-			s.clear();
-		}
-		System.out.println(sb);
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringBuilder sb = new StringBuilder();
+//		Stack<Character> s = new Stack<>();//
+//		String line;
+//		
+//		while(true) {
+//			line = br.readLine();
+//			if(line.substring(0).equals(".")) break;
+//			for(int i = 0; i < line.length(); i++) {
+//				char ch = line.charAt(i);
+//				if(ch == '(' || ch == '[')
+//					s.push(ch);
+//				else if(ch == ')' || ch == ']') {
+//					if(ch == ')') {
+//						if(s.isEmpty()) {
+//							s.push('e');
+//							break;
+//						}
+//						else if(s.peek().equals('[')) 
+//							break;
+//						else if(s.peek().equals('(')) 
+//							s.pop();
+//					}else if(ch == ']') {
+//						if(s.isEmpty()) {
+//							s.push('e');
+//							break;
+//						}
+//						else if(s.peek().equals('(')) 
+//							break;
+//						else if(s.peek().equals('[')) 
+//							s.pop();
+//					}
+//				}
+//			}
+//			if(s.isEmpty())
+//				sb.append("yes\n");
+//			else
+//				sb.append("no\n");
+//			s.clear();
+//		}
+//		System.out.println(sb);
 		
 		
 		//괄호
