@@ -5,54 +5,139 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 import java.util.StringTokenizer;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-		//도키도키 간식드리미
+		//요세푸스 문제 0
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int cnt = Integer.parseInt(br.readLine());
-		int outNum = 1;
-		
-		Queue<Integer> q = new LinkedList<>();//선입선출
-		Stack<Integer> s = new Stack<>();//후입선출
 		StringTokenizer st = new StringTokenizer(br.readLine());
+		StringBuilder sb = new StringBuilder();
+		int cnt = Integer.parseInt(st.nextToken());
+		int yosNum = Integer.parseInt(st.nextToken());
+		Queue<Integer> srcList = new LinkedList<>();
 		
 		for(int i = 0; i < cnt; i++)
-			q.add(Integer.parseInt(st.nextToken()));
+			srcList.add(i+1);
 		
-		while(!q.isEmpty()) {
-			int num = q.peek();//데이터를 반환
-			if(num != outNum)
-				if(!s.isEmpty() && outNum == s.peek()) {//2번쨰 줄의 데이터랑 같은지
-					s.pop();
-					outNum++;
-				}
-				else {
-					s.push(num);
-					q.poll();
-				}
-			else {
-				outNum++;
-				q.poll();
+		int num = 0;
+		sb.append("<");
+		while(srcList.size() != 1) {
+			for(int j = 0; j < yosNum - 1; j++) {
+				srcList.add(srcList.remove());
 			}
+			sb.append(srcList.remove()).append(", ");
 		}
-		cnt = s.size();
-		for(int i = 0; i < cnt; i++) {
-			int num = s.peek();
-			if(num == outNum) {
-				s.pop();
-				outNum++;
-			}
-			else 
-				break;
-		}
-		if(s.isEmpty())
-			System.out.println("Nice");
-		else
-			System.out.println("Sad");
+		sb.append(srcList.remove()).append(">");
+		System.out.println(sb);
 		
+		
+		
+		
+		//카드2
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		int cnt = Integer.parseInt(br.readLine());
+//		boolean isLast = false;
+//		Deque<Integer> d = new LinkedList<Integer>();
+//		for(int i = 0; i < cnt; i++) {
+//			d.addLast(i+1);
+//		}
+//		while(!(d.size() == 1)) {
+//			if(isLast) {
+//				d.addLast(d.removeFirst());
+//				isLast = false;
+//			} else {
+//				d.removeFirst();
+//				isLast = true;
+//			}
+//		}
+//		System.out.println(d.removeFirst());
+		
+		
+		
+		//큐 2
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		int cnt = Integer.parseInt(br.readLine());
+//		StringBuilder sb = new StringBuilder();
+//		Deque<Integer> d = new LinkedList<>();//선입선출
+//		
+//		for(int i = 0; i < cnt; i++) {
+//			StringTokenizer st = new StringTokenizer(br.readLine());
+//			String str = st.nextToken();
+//			if(str.equals("push")) {
+//				d.offerLast(Integer.parseInt(st.nextToken()));
+//			} else if(str.equals("pop")) {
+//				if(d.isEmpty())
+//					sb.append(-1).append("\n");
+//				else {
+//					int num = d.removeFirst();
+//					sb.append(num).append("\n");
+//				}
+//			} else if(str.equals("size")) {
+//				sb.append(d.size()).append("\n");
+//			} else if(str.equals("empty")) {
+//				if(d.isEmpty())
+//					sb.append(1).append("\n");
+//				else
+//					sb.append(0).append("\n");
+//			} else if(str.equals("front")) {
+//				if(d.isEmpty())
+//					sb.append(-1).append("\n");
+//				else
+//					sb.append(d.getFirst()).append("\n");
+//			} else if(str.equals("back")) {
+//				if(d.isEmpty())
+//					sb.append(-1).append("\n");
+//				else
+//					sb.append(d.getLast()).append("\n");
+//			}
+//		}
+//		System.out.println(sb);
+		
+		
+		
+		//도키도키 간식드리미
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		int cnt = Integer.parseInt(br.readLine());
+//		int outNum = 1;
+//		
+//		Queue<Integer> q = new LinkedList<>();//선입선출
+//		Stack<Integer> s = new Stack<>();//후입선출
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		
+//		for(int i = 0; i < cnt; i++)
+//			q.add(Integer.parseInt(st.nextToken()));
+//		
+//		while(!q.isEmpty()) {
+//			int num = q.peek();//데이터를 반환
+//			if(num != outNum)
+//				if(!s.isEmpty() && outNum == s.peek()) {//2번쨰 줄의 데이터랑 같은지
+//					s.pop();
+//					outNum++;
+//				}
+//				else {
+//					s.push(num);
+//					q.poll();
+//				}
+//			else {
+//				outNum++;
+//				q.poll();
+//			}
+//		}
+//		cnt = s.size();
+//		for(int i = 0; i < cnt; i++) {
+//			int num = s.peek();
+//			if(num == outNum) {
+//				s.pop();
+//				outNum++;
+//			}
+//			else 
+//				break;
+//		}
+//		if(s.isEmpty())
+//			System.out.println("Nice");
+//		else
+//			System.out.println("Sad");
 		
 		
 		
