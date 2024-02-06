@@ -3,34 +3,94 @@ package com.test.tab.study16;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
+		//풍선 터뜨리기
+		
+		
+		
+		
+		//덱 2
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		StringBuilder sb = new StringBuilder();
+//		int cnt = Integer.parseInt(st.nextToken());
+//		int selNum = 0;
+//		Deque<Integer> d = new LinkedList<>();
+//		
+//		for(int i = 0; i < cnt; i++) {
+//			st = new StringTokenizer(br.readLine());
+//			selNum = Integer.parseInt(st.nextToken());
+//			
+//			switch (selNum) {
+//			case 1:
+//				d.addFirst(Integer.parseInt(st.nextToken()));
+//				break;
+//			case 2:
+//				d.addLast(Integer.parseInt(st.nextToken()));
+//				break;
+//			case 3:
+//				if(d.isEmpty())
+//					sb.append("-1\n");
+//				else
+//					sb.append(d.removeFirst()).append("\n");
+//				break;
+//			case 4:
+//				if(d.isEmpty())
+//					sb.append("-1\n");
+//				else 
+//					sb.append(d.removeLast()).append("\n");
+//				break;
+//			case 5:
+//				sb.append(d.size()).append("\n");
+//				break;
+//			case 6:
+//				if(d.isEmpty())
+//					sb.append("1\n");
+//				else
+//					sb.append("0\n");
+//				break;
+//			case 7:
+//				if(d.isEmpty())
+//					sb.append("-1\n");
+//				else 
+//					sb.append(d.peekFirst()).append("\n");
+//				break;
+//			case 8:
+//				if(d.isEmpty())
+//					sb.append("-1\n");
+//				else 
+//					sb.append(d.peekLast()).append("\n");
+//				break;
+//			}
+//		}
+//		System.out.println(sb);
+		
+		
+		
 		//요세푸스 문제 0
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		StringBuilder sb = new StringBuilder();
-		int cnt = Integer.parseInt(st.nextToken());
-		int yosNum = Integer.parseInt(st.nextToken());
-		Queue<Integer> srcList = new LinkedList<>();
-		
-		for(int i = 0; i < cnt; i++)
-			srcList.add(i+1);
-		
-		int num = 0;
-		sb.append("<");
-		while(srcList.size() != 1) {
-			for(int j = 0; j < yosNum - 1; j++) {
-				srcList.add(srcList.remove());
-			}
-			sb.append(srcList.remove()).append(", ");
-		}
-		sb.append(srcList.remove()).append(">");
-		System.out.println(sb);
-		
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		StringBuilder sb = new StringBuilder();
+//		int cnt = Integer.parseInt(st.nextToken());
+//		int yosNum = Integer.parseInt(st.nextToken());
+//		Queue<Integer> srcList = new LinkedList<>();
+//		for(int i = 0; i < cnt; i++)
+//			srcList.add(i+1);
+//		int num = 0;
+//		sb.append("<");
+//		while(srcList.size() != 1) {//1개가 남을때까지 반복
+//			for(int j = 0; j < yosNum - 1; j++) {//입력된 텀만큼 숫자를 뒤로 보냄, 빼고 다시 붙이는 방식
+//				srcList.add(srcList.remove());
+//			}
+//			sb.append(srcList.remove()).append(", ");
+//		}
+//		sb.append(srcList.remove()).append(">");
+//		System.out.println(sb);
 		
 		
 		
