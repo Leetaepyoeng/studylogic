@@ -1,41 +1,102 @@
 package com.test.tab.study17;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
+		//부분합, 투포인터 문제 실패 모범답안은 아래
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		int cnt = Integer.parseInt(st.nextToken());
+//		int dstNum = Integer.parseInt(st.nextToken());
+//		List<Integer> list = new ArrayList<>();
+//		
+//		st = new StringTokenizer(br.readLine());
+//		for(int i = 0; i < cnt; i++) {
+//			list.add(Integer.parseInt(st.nextToken()));
+//		}
+//		int i = 0;
+//		int srcNum = 0;
+//		int selNum = 99990;
+//		int cntNum = 1;
+//		while(i < list.size()) {
+//			srcNum += list.get(i);
+//			if(srcNum >= dstNum) {
+//				srcNum = 0;
+//				if(cntNum < selNum) {
+//					selNum = cntNum;
+//					cntNum = 0;
+//				}
+//				else {
+//					cntNum--;
+//				}
+//				i--;
+//				
+//			}
+//			cntNum++;
+//			i++;
+//		}
+//		if(selNum != 99990)
+//			System.out.println(selNum);
+//		else
+//			System.out.println(0);
+		//부분합 모범답안
+		Scanner scan = new Scanner(System.in);
+        
+        int n = scan.nextInt();//숫자의 개수
+        int s = scan.nextInt();//목표값
+        
+        int[] nums = new int[n + 1];
+        for(int i = 0; i < n; i++) {
+            nums[i] = scan.nextInt();//순서대로 배열 채우고
+        }
+        
+        int min = Integer.MAX_VALUE;//걍 인트형 제일 높은 값 먹임
+        int start = 0;
+        int end = 0;
+        int total = 0;
+        while(start <= n && end <= n) {
+            if(total >= s && min > end - start) min = end - start;
+            
+            if(total < s) total += nums[end++];
+            else total -= nums[start++];
+        }
+        
+        if(min == Integer.MAX_VALUE) System.out.println("0");
+        else System.out.println(min);
+		
+		
 		//구간 합 구하기 5
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		StringBuilder sb = new StringBuilder();
-		int wh = Integer.parseInt(st.nextToken());
-		int cnt = Integer.parseInt(st.nextToken());
-		int[][] arr = new int[wh][wh];
-		int[][] pSum = new int[wh+1][wh+1];
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		StringBuilder sb = new StringBuilder();
+//		int wh = Integer.parseInt(st.nextToken());
+//		int cnt = Integer.parseInt(st.nextToken());
+//		int[][] arr = new int[wh][wh];
+//		int[][] pSum = new int[wh+1][wh+1];
+//		
+//		for(int i = 0; i < wh; i++) {
+//			st = new StringTokenizer(br.readLine());
+//			for(int j = 0; j < wh; j++)
+//				arr[i][j] = Integer.parseInt(st.nextToken());
+//		}
+//		for(int h = 1; h <= wh; h++)
+//			for(int w = 1; w <= wh; w++)
+//				pSum[h][w] = pSum[h-1][w]+pSum[h][w-1]-pSum[h-1][w-1]+arr[h-1][w-1];
+//		
+//		for(int i = 0; i < cnt; i++) {
+//			st = new StringTokenizer(br.readLine());
+//			int sttH = Integer.parseInt(st.nextToken());
+//			int sttW = Integer.parseInt(st.nextToken());
+//			int endH = Integer.parseInt(st.nextToken());
+//			int endW = Integer.parseInt(st.nextToken());
+//
+//			sb.append(pSum[endH][endW] - pSum[sttH-1][endW] - pSum[endH][sttW-1] + pSum[sttH-1][sttW-1])
+//			.append("\n");
+//		}
+//		System.out.println(sb);
 		
-		for(int i = 0; i < wh; i++) {
-			st = new StringTokenizer(br.readLine());
-			for(int j = 0; j < wh; j++)
-				arr[i][j] = Integer.parseInt(st.nextToken());
-		}
-		for(int h = 1; h <= wh; h++)
-			for(int w = 1; w <= wh; w++)
-				pSum[h][w] = pSum[h-1][w]+pSum[h][w-1]-pSum[h-1][w-1]+arr[h-1][w-1];
-		
-		for(int i = 0; i < cnt; i++) {
-			st = new StringTokenizer(br.readLine());
-			int sttH = Integer.parseInt(st.nextToken());
-			int sttW = Integer.parseInt(st.nextToken());
-			int endH = Integer.parseInt(st.nextToken());
-			int endW = Integer.parseInt(st.nextToken());
-
-			sb.append(pSum[endH][endW] - pSum[sttH-1][endW] - pSum[endH][sttW-1] + pSum[sttH-1][sttW-1])
-			.append("\n");
-		}
-		System.out.println(sb);
 		
 		//구간 합 구하기 4
 //		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
