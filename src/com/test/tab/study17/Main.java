@@ -1,10 +1,44 @@
 package com.test.tab.study17;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Scanner;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
+		//수들의 합 2
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int cnt = Integer.parseInt(st.nextToken());
+		int dstNum = Integer.parseInt(st.nextToken());
+		List<Integer> list = new ArrayList<>();
+		
+		st = new StringTokenizer(br.readLine());
+		for(int i = 0; i < cnt; i++) {
+			list.add(Integer.parseInt(st.nextToken()));
+		}
+		int stt = 0;
+		int end = 0;
+		int sunCnt = 0;
+		int sum = 0;
+		while(true) {
+			if(sum >= dstNum) {
+				sum -= list.get(stt++);
+			}else if(end==cnt) break;
+			else {
+				sum += list.get(end++);
+			}
+			if(sum==dstNum) {
+				sunCnt++;
+			}
+		}
+		System.out.println(sunCnt);
+		
+		
+		
 		//부분합, 투포인터 문제 실패 모범답안은 아래
 //		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //		StringTokenizer st = new StringTokenizer(br.readLine());
@@ -42,29 +76,24 @@ public class Main {
 //		else
 //			System.out.println(0);
 		//부분합 모범답안
-		Scanner scan = new Scanner(System.in);
-        
-        int n = scan.nextInt();//숫자의 개수
-        int s = scan.nextInt();//목표값
-        
-        int[] nums = new int[n + 1];
-        for(int i = 0; i < n; i++) {
-            nums[i] = scan.nextInt();//순서대로 배열 채우고
-        }
-        
-        int min = Integer.MAX_VALUE;//걍 인트형 제일 높은 값 먹임
-        int start = 0;
-        int end = 0;
-        int total = 0;
-        while(start <= n && end <= n) {
-            if(total >= s && min > end - start) min = end - start;
-            
-            if(total < s) total += nums[end++];
-            else total -= nums[start++];
-        }
-        
-        if(min == Integer.MAX_VALUE) System.out.println("0");
-        else System.out.println(min);
+//		Scanner scan = new Scanner(System.in);
+//        int n = scan.nextInt();//숫자의 개수
+//        int s = scan.nextInt();//목표값
+//        int[] nums = new int[n + 1];
+//        for(int i = 0; i < n; i++) {
+//            nums[i] = scan.nextInt();//순서대로 배열 채우고
+//        }
+//        int min = Integer.MAX_VALUE;//걍 인트형 제일 높은 값 먹임
+//        int start = 0;
+//        int end = 0;
+//        int total = 0;
+//        while(start <= n && end <= n) {
+//            if(total >= s && min > end - start) min = end - start;
+//            if(total < s) total += nums[end++];
+//            else total -= nums[start++];
+//        }
+//        if(min == Integer.MAX_VALUE) System.out.println("0");
+//        else System.out.println(min);
 		
 		
 		//구간 합 구하기 5
