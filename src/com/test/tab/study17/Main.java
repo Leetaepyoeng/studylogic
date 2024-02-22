@@ -9,33 +9,37 @@ import java.util.StringTokenizer;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-		//수들의 합 2
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		int cnt = Integer.parseInt(st.nextToken());
-		int dstNum = Integer.parseInt(st.nextToken());
-		List<Integer> list = new ArrayList<>();
+		//나머지 합 이건 나중에, 다시 기초부터 하면서 수학공부랑 병행하자
 		
-		st = new StringTokenizer(br.readLine());
-		for(int i = 0; i < cnt; i++) {
-			list.add(Integer.parseInt(st.nextToken()));
-		}
-		int stt = 0;
-		int end = 0;
-		int sunCnt = 0;
-		int sum = 0;
-		while(true) {
-			if(sum >= dstNum) {
-				sum -= list.get(stt++);
-			}else if(end==cnt) break;
-			else {
-				sum += list.get(end++);
-			}
-			if(sum==dstNum) {
-				sunCnt++;
-			}
-		}
-		System.out.println(sunCnt);
+		
+		
+		//수들의 합 2, 투 포인터 문제
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		int cnt = Integer.parseInt(st.nextToken());
+//		int dstNum = Integer.parseInt(st.nextToken());
+//		int[] list = new int[cnt];
+//		
+//		st = new StringTokenizer(br.readLine());
+//		for(int i = 0; i < cnt; i++) {
+//			list[i] = Integer.parseInt(st.nextToken());;
+//		}
+//		int stt = 0;
+//		int end = 0;
+//		int sunCnt = 0;
+//		int sum = 0;
+//		while(true) {
+//			if(sum >= dstNum) {//더한 값이 목표값보다 같거나 크면 왼쪽값을 빼주고 자리이동
+//				sum -= list[stt++];
+//			}else if(end==cnt) break; //오른값의 위치가 제일 오른쪾이면
+//			else {//더한값이 목표값보다 적으면 오른값을 저장하고 자리 이동
+//				sum += list[end++];
+//			}
+//			if(sum==dstNum) {
+//				sunCnt++;
+//			}
+//		}
+//		System.out.println(sunCnt);
 		
 		
 		
