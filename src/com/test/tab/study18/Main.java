@@ -1,23 +1,44 @@
 package com.test.tab.study18;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.HashSet;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		//팩토리얼, ?공부
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int cnt = Integer.parseInt(br.readLine());
-		int result = cnt;
-		
-		if(cnt > 1)
-			for(int i = cnt-1; i > 0; i--) {
-				result *= i;
+		//셀프 넘버
+		StringBuilder sb = new StringBuilder();
+		HashSet<Integer> list = new HashSet<>();
+        for(int i = 1; i < 10001; i++) 
+        	list.add(i);
+        
+		for(int i = 1; i < 10001; i++) {
+			int num = i;
+			int sum = num;//기존 값에 더해야하니 기본 값부터 시작
+			while(num != 0) {
+				sum = sum + (num % 10); // 가장 오른쪽 자리 수
+				num = num / 10;	// 10을 나누어 첫 째 자리를 없앤다
 			}
-		else
-			result = 1;
-		System.out.println(result);
+			list.remove(sum);
+		}
+		for (Integer i : list)
+			sb.append(i).append("\n");
+		System.out.println(sb);
+		
+		
+		
+		//팩토리얼, ?공부
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		int cnt = Integer.parseInt(br.readLine());
+//		int result = cnt;
+//		
+//		if(cnt > 1)
+//			for(int i = cnt-1; i > 0; i--) {
+//				result *= i;
+//			}
+//		else
+//			result = 1;
+//		System.out.println(result);
+		
 		
 		//평균은 넘겠지
 //		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
