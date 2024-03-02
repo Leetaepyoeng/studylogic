@@ -1,28 +1,53 @@
 package com.test.tab.study18;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.HashSet;
+import java.io.InputStreamReader;
+import java.util.HashMap;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
+		//피보나치 수 5
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int num = Integer.parseInt(br.readLine());
+		HashMap<Integer, Integer> map = new HashMap<>();
+		map.put(0, 0);
+		map.put(1, 1);
+		for(int i = 2; i < 21; i++)
+			map.put(i, map.get(i-2)+map.get(i-1));
+		System.out.println(map.get(num));
+		
+		
+		//A+B - 2
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		int a = Integer.parseInt(br.readLine());
+//		int b = Integer.parseInt(br.readLine());
+//		System.out.println(a+b);
+		
+		
+		
+		//한수 -> 이건 등차수열 공부
+		
+		
+		
 		//셀프 넘버
-		StringBuilder sb = new StringBuilder();
-		HashSet<Integer> list = new HashSet<>();
-        for(int i = 1; i < 10001; i++) 
-        	list.add(i);
-        
-		for(int i = 1; i < 10001; i++) {
-			int num = i;
-			int sum = num;//기존 값에 더해야하니 기본 값부터 시작
-			while(num != 0) {
-				sum = sum + (num % 10); // 가장 오른쪽 자리 수
-				num = num / 10;	// 10을 나누어 첫 째 자리를 없앤다
-			}
-			list.remove(sum);
-		}
-		for (Integer i : list)
-			sb.append(i).append("\n");
-		System.out.println(sb);
+//		StringBuilder sb = new StringBuilder();
+//		HashSet<Integer> list = new HashSet<>();
+//        for(int i = 1; i < 10001; i++) 
+//        	list.add(i);
+//        
+//		for(int i = 1; i < 10001; i++) {
+//			int num = i;
+//			int sum = num;//기존 값에 더해야하니 기본 값부터 시작
+//			while(num != 0) {
+//				sum = sum + (num % 10); // 가장 오른쪽 자리 수
+//				num = num / 10;	// 10을 나누어 첫 째 자리를 없앤다
+//			}
+//			list.remove(sum);
+//		}
+//		for (Integer i : list)
+//			sb.append(i).append("\n");
+//		System.out.println(sb);
 		
 		
 		
