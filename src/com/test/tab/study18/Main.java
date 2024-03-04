@@ -3,19 +3,103 @@ package com.test.tab.study18;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
+import java.math.BigInteger;
+import java.util.StringTokenizer;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		//피보나치 수 5
+		//최대공약수와 최소공배수
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int num = Integer.parseInt(br.readLine());
-		HashMap<Integer, Integer> map = new HashMap<>();
-		map.put(0, 0);
-		map.put(1, 1);
-		for(int i = 2; i < 21; i++)
-			map.put(i, map.get(i-2)+map.get(i-1));
-		System.out.println(map.get(num));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		StringBuilder sb = new StringBuilder();
+		BigInteger a = BigInteger.valueOf(Integer.parseInt(st.nextToken()));
+        BigInteger b = BigInteger.valueOf(Integer.parseInt(st.nextToken()));
+		
+        // 최대공약수 구하기
+        BigInteger gcd = a.gcd(b);
+        // 최소공배수 구하기
+        BigInteger lcm = a.multiply(b).divide(gcd);
+        sb.append(gcd).append("\n").append(lcm);
+        
+        System.out.println(sb);
+		
+		
+		//소수 구하기, 에라토스테네스의 체로 풀어야함. 잘 이해가 안감. 시간복잡도부터 공부 필요
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		int M = Integer.parseInt(st.nextToken());
+//		int N = Integer.parseInt(st.nextToken());
+//		//소수 판별 배열 N까지 나타내기위해 범위는 N+1로
+//		//소수 판별은 꼭 boolean 형을 사용하지 않고 int형이나 String형 같이 다른 자료형을 사용해도 된다.
+//		boolean[] arr = new boolean[N + 1];
+//		StringBuilder sb = new StringBuilder();
+//		
+//		//0과 1은 소수가 아니다.
+//		arr[0] = true;
+//		arr[1] = true;
+//		
+//		//문제에서 말한 제곱해서 N을 넘지 않을때까지만 소수의 배수를 제외해 주면 된다.
+//		for(int i = 2; i * i <= N; i++) {
+//			//소수일때
+//			if(!arr[i]) {
+//				//j에는 소수의 배수들이 들어와야하기때문에 아래 조건이 들어간다.
+//				for(int j = i * i; j <= N; j += i) {
+//					//소수의 배수들에는 true를 저장
+//					arr[j] = true;
+//				}
+//			}
+//		}
+//		
+//		for(int i = M; i <= N; i++) {
+//			if(!arr[i]) sb.append(i).append("\n");
+//		}
+//		System.out.println(sb);
+		
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		StringBuilder sb = new StringBuilder();
+//		int minNum = Integer.parseInt(st.nextToken());
+//		int maxNum = Integer.parseInt(st.nextToken());
+//		for(int i = minNum; i <= maxNum; i++) {
+//			boolean isminorNum = true;
+//			int selNum = i;
+//			if(selNum % 2 == 0 || selNum % 5 == 0) continue;
+//			if(selNum > 9 && selNum % 3 == 0)	continue;
+//			for(int j = 2; j <= selNum / 2; j++) {
+//				if(selNum % j == 0) {
+//					isminorNum = false;
+//					break;
+//				}
+//			}
+//			if(isminorNum)
+//				sb.append(selNum).append("\n");
+//		}
+//		System.out.println(sb);
+		
+		
+		//손익분기점
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		int annualCost = Integer.parseInt(st.nextToken());
+//		int productCost = Integer.parseInt(st.nextToken());
+//		int goodsCost = Integer.parseInt(st.nextToken());
+//		int margin = goodsCost - productCost;
+//		int result = -1;
+//		if(margin > 0) {
+//			result = annualCost / (margin) + 1;
+//		}
+//		System.out.println(result);
+		
+		
+		//피보나치 수 5
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		int num = Integer.parseInt(br.readLine());
+//		HashMap<Integer, Integer> map = new HashMap<>();
+//		map.put(0, 0);
+//		map.put(1, 1);
+//		for(int i = 2; i < 21; i++)
+//			map.put(i, map.get(i-2)+map.get(i-1));
+//		System.out.println(map.get(num));
 		
 		
 		//A+B - 2
