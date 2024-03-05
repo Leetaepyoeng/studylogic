@@ -3,25 +3,44 @@ package com.test.tab.study18;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.math.BigInteger;
 import java.util.StringTokenizer;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		//최대공약수와 최소공배수
+		//ACM 호텔
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
 		StringBuilder sb = new StringBuilder();
-		BigInteger a = BigInteger.valueOf(Integer.parseInt(st.nextToken()));
-        BigInteger b = BigInteger.valueOf(Integer.parseInt(st.nextToken()));
+		int cnt = Integer.parseInt(br.readLine());
 		
-        // 최대공약수 구하기
-        BigInteger gcd = a.gcd(b);
-        // 최소공배수 구하기
-        BigInteger lcm = a.multiply(b).divide(gcd);
-        sb.append(gcd).append("\n").append(lcm);
-        
-        System.out.println(sb);
+		for(int i = 0; i < cnt; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			int h = Integer.parseInt(st.nextToken());
+			st.nextToken();
+			int n = Integer.parseInt(st.nextToken());
+			
+			
+			if(n % h == 0) {
+				sb.append((h*100) + (n / h)).append("\n");
+			}
+			else 
+				sb.append((n%h)*100 + (n / h) + 1).append("\n");
+		}
+		System.out.println(sb);
+		
+		
+		
+		//최대공약수와 최소공배수
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		StringBuilder sb = new StringBuilder();
+//		BigInteger a = BigInteger.valueOf(Integer.parseInt(st.nextToken()));
+//        BigInteger b = BigInteger.valueOf(Integer.parseInt(st.nextToken()));
+//        // 최대공약수 구하기
+//        BigInteger gcd = a.gcd(b);
+//        // 최소공배수 구하기
+//        BigInteger lcm = a.multiply(b).divide(gcd);
+//        sb.append(gcd).append("\n").append(lcm);
+//        System.out.println(sb);
 		
 		
 		//소수 구하기, 에라토스테네스의 체로 풀어야함. 잘 이해가 안감. 시간복잡도부터 공부 필요
