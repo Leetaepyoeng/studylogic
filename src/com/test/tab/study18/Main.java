@@ -7,25 +7,43 @@ import java.util.StringTokenizer;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		//ACM 호텔
+		//부녀회장이 될테야
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
-		int cnt = Integer.parseInt(br.readLine());
+		int[][] aptArr = new int[15][15];
+		for(int i = 0; i < 15; i++) {
+			aptArr[i][1] = 1;
+			aptArr[0][i] = i;
+		}
+		for(int h = 1; h < 15; h++)
+			for(int w = 2; w < 15; w++)
+				aptArr[h][w] = aptArr[h - 1][w] + aptArr[h][w-1];
 		
+		int cnt = Integer.parseInt(br.readLine());
 		for(int i = 0; i < cnt; i++) {
-			StringTokenizer st = new StringTokenizer(br.readLine());
-			int h = Integer.parseInt(st.nextToken());
-			st.nextToken();
-			int n = Integer.parseInt(st.nextToken());
-			
-			
-			if(n % h == 0) {
-				sb.append((h*100) + (n / h)).append("\n");
-			}
-			else 
-				sb.append((n%h)*100 + (n / h) + 1).append("\n");
+			int h = Integer.parseInt(br.readLine());
+			int w = Integer.parseInt(br.readLine());
+			sb.append(aptArr[h][w]).append("\n");
 		}
 		System.out.println(sb);
+		
+		//ACM 호텔
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringBuilder sb = new StringBuilder();
+//		int cnt = Integer.parseInt(br.readLine());
+//		
+//		for(int i = 0; i < cnt; i++) {
+//			StringTokenizer st = new StringTokenizer(br.readLine());
+//			int h = Integer.parseInt(st.nextToken());
+//			st.nextToken();//w는 필요없음
+//			int n = Integer.parseInt(st.nextToken());
+//			
+//			if(n % h == 0) //나머지가 0이면 층수는 입력된 값, 호수는 몫 값
+//				sb.append((h*100) + (n / h)).append("\n");
+//			else //층수는 나머지값 * 100, 호수는 몫 값+1
+//				sb.append((n%h)*100 + (n / h) + 1).append("\n");
+//		}
+//		System.out.println(sb);
 		
 		
 		
