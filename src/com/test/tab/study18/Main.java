@@ -3,28 +3,95 @@ package com.test.tab.study18;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
+import java.util.StringTokenizer;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		//부녀회장이 될테야
+		//큰 수 A+B
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
-		int[][] aptArr = new int[15][15];
-		for(int i = 0; i < 15; i++) {
-			aptArr[i][1] = 1;
-			aptArr[0][i] = i;
-		}
-		for(int h = 1; h < 15; h++)
-			for(int w = 2; w < 15; w++)
-				aptArr[h][w] = aptArr[h - 1][w] + aptArr[h][w-1];
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		BigInteger a = new BigInteger(st.nextToken());
+		BigInteger b = new BigInteger(st.nextToken());
+		System.out.println(a.add(b));
+//		System.out.println(Long.parseLong(st.nextToken()) + Long.parseLong(st.nextToken()));
 		
-		int cnt = Integer.parseInt(br.readLine());
-		for(int i = 0; i < cnt; i++) {
-			int h = Integer.parseInt(br.readLine());
-			int w = Integer.parseInt(br.readLine());
-			sb.append(aptArr[h][w]).append("\n");
-		}
-		System.out.println(sb);
+		
+		
+		
+		//평균 점수
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		int size = 5;
+//		int sum = 0;
+//		int result = 0;
+//		int[] arr = new int[size];
+//		for(int i = 0; i < size; i++) {
+//			arr[i] = Integer.parseInt(br.readLine());
+//			if(arr[i] < 40) arr[i] = 40;
+//			sum += arr[i];
+//		}
+//		result = sum / size;
+//		System.out.println(result);
+		
+		
+		//직각삼각형
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringBuilder sb = new StringBuilder();
+//		StringTokenizer st;
+//		while(true) {
+//			st = new StringTokenizer(br.readLine());
+//			int[] arr = new int[3];
+//			for(int i = 0; i < 3; i++) {
+//				arr[i] = Integer.parseInt(st.nextToken());
+//				arr[i] *= arr[i]; 
+//			}
+//			Arrays.sort(arr);
+//			
+//			if(arr[0] + arr[1] + arr[2] == 0) break;
+//			
+//			String str = (arr[0]+arr[1]) == arr[2] ? "right" : "wrong";
+//			sb.append(str).append("\n");
+//		}
+//		System.out.println(sb);
+		
+		
+		//검증수
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		int size = 5;
+//		int sum = 0;
+//		int[] arr = new int[size];
+//		for(int i = 0; i < size; i++) {
+//			arr[i] = Integer.parseInt(st.nextToken());
+//			arr[i] *= arr[i];
+//			sum+=arr[i];
+//		}
+//		System.out.println(sum%10);
+		
+		
+		
+		
+		//부녀회장이 될테야
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringBuilder sb = new StringBuilder();
+//		int[][] aptArr = new int[15][15];
+//		for(int i = 0; i < 15; i++) {
+//			aptArr[i][1] = 1;
+//			aptArr[0][i] = i;
+//		}
+//		for(int h = 1; h < 15; h++)
+//			for(int w = 2; w < 15; w++)
+//				aptArr[h][w] = aptArr[h - 1][w] + aptArr[h][w-1];
+//		
+//		int cnt = Integer.parseInt(br.readLine());
+//		for(int i = 0; i < cnt; i++) {
+//			int h = Integer.parseInt(br.readLine());
+//			int w = Integer.parseInt(br.readLine());
+//			sb.append(aptArr[h][w]).append("\n");
+//		}
+//		System.out.println(sb);
+		
+		
 		
 		//ACM 호텔
 //		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
