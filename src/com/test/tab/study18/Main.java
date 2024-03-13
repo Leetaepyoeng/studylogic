@@ -3,19 +3,63 @@ package com.test.tab.study18;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.math.BigInteger;
 import java.util.StringTokenizer;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		//큰 수 A+B
+		//다리 놓기
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		BigInteger a = new BigInteger(st.nextToken());
-		BigInteger b = new BigInteger(st.nextToken());
-		System.out.println(a.add(b));
-//		System.out.println(Long.parseLong(st.nextToken()) + Long.parseLong(st.nextToken()));
+		String[] arr1 = br.readLine().split("-");
+		int resultNum = 0;
+		for(int i = 0; i < arr1.length; i++) {
+			//split의 경우 정규식(regex)을 받기 때문에 "+"을 하면 regex.PatternSyntaxException을 뱉는다.
+			//+ 문자가 메타문자(meta character)라 그렇다.(=특별한 의미를 담고 있다는 뜻) 
+			String[] arr2 = arr1[i].split("\\+");
+			int num = 0;
+			for(int j = 0; j < arr2.length; j++) {
+				num = Integer.parseInt(arr2[j]);
+			}
+			if(i == 0)
+				resultNum = num;
+			else
+				resultNum -= num;
+		}
+		System.out.println(resultNum);
 		
+		
+		//파도반 수열
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringBuilder sb = new StringBuilder();
+//		int cnt = Integer.parseInt(br.readLine());
+//		long[] numbers = new long[101];
+//		long[] numbers2 = {0, 1L, 1L, 1L, 2L, 2L};
+//		for(int i = 0; i < numbers2.length; i++)
+//			numbers[i] = numbers2[i];
+//		for(int i = 6; i < numbers.length; i++)
+//			numbers[i] = numbers[i-1] + numbers[i-5];
+//		for(int i = 0; i < cnt; i++) {
+//			int num = Integer.parseInt(br.readLine());
+//			sb.append(numbers[num]).append("\n");
+//		}
+//		System.out.println(sb);
+		
+		
+		//2007년
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		int month = Integer.parseInt(st.nextToken());
+//		int day = Integer.parseInt(st.nextToken());
+//		LocalDate date = LocalDate.of(2007, month, day);
+//        DayOfWeek dayOfWeek = date.getDayOfWeek();
+//        System.out.println(dayOfWeek.name().substring(0, 3));
+        
+        
+		//큰 수 A+B
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		BigInteger a = new BigInteger(st.nextToken());
+//		BigInteger b = new BigInteger(st.nextToken());
+//		System.out.println(a.add(b));
 		
 		
 		
