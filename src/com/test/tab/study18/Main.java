@@ -3,28 +3,47 @@ package com.test.tab.study18;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		//다리 놓기
+		//N 찍기
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String[] arr1 = br.readLine().split("-");
-		int resultNum = 0;
-		for(int i = 0; i < arr1.length; i++) {
-			//split의 경우 정규식(regex)을 받기 때문에 "+"을 하면 regex.PatternSyntaxException을 뱉는다.
-			//+ 문자가 메타문자(meta character)라 그렇다.(=특별한 의미를 담고 있다는 뜻) 
-			String[] arr2 = arr1[i].split("\\+");
-			int num = 0;
-			for(int j = 0; j < arr2.length; j++) {
-				num = Integer.parseInt(arr2[j]);
-			}
-			if(i == 0)
-				resultNum = num;
-			else
-				resultNum -= num;
-		}
-		System.out.println(resultNum);
+		StringBuilder sb = new StringBuilder();
+		int cnt = Integer.parseInt(br.readLine())+1;
+		for(int i = 1; i < cnt; i++)
+			sb.append(i).append("\n");
+		System.out.println(sb);
+		
+		
+		//세 수
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		int[] num = new int[3];
+//		for(int i = 0; i < 3; i++)
+//			num[i] = Integer.parseInt(st.nextToken());
+//		Arrays.sort(num);
+//		System.out.println(num[1]);
+		
+		
+		
+		//다리 놓기
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		String[] arr1 = br.readLine().split("-");
+//		int resultNum = 0;
+//		for(int i = 0; i < arr1.length; i++) {
+//			//split의 경우 정규식(regex)을 받기 때문에 "+"을 하면 regex.PatternSyntaxException을 뱉는다.
+//			//+ 문자가 메타문자(meta character)라 그렇다.(=특별한 의미를 담고 있다는 뜻) 
+//			String[] arr2 = arr1[i].split("\\+");
+//			int num = 0;
+//			for(int j = 0; j < arr2.length; j++) {
+//				num += Integer.parseInt(arr2[j]);
+//			}
+//			if(i == 0)
+//				resultNum = num;
+//			else
+//				resultNum -= num;
+//		}
+//		System.out.println(resultNum);
 		
 		
 		//파도반 수열
