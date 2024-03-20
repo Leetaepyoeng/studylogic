@@ -6,13 +6,35 @@ import java.io.InputStreamReader;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		//N 찍기
+		//OX퀴즈
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
-		int cnt = Integer.parseInt(br.readLine())+1;
-		for(int i = 1; i < cnt; i++)
-			sb.append(i).append("\n");
+		int cnt = Integer.parseInt(br.readLine());
+		for(int i = 0; i < cnt; i++) {
+			String str = br.readLine();
+			int cnt2 = 0; // 연속횟수
+			int sum = 0; // 누적 합산
+			for(int x = 0; x < str.length(); x++) {
+				if (str.charAt(x) == 'O') {
+					cnt2++;
+					sum += cnt2;
+				} 
+				else
+					cnt2 = 0;
+			}
+			sb.append(sum).append("\n");
+		}
 		System.out.println(sb);
+		
+		
+		
+		//N 찍기
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringBuilder sb = new StringBuilder();
+//		int cnt = Integer.parseInt(br.readLine())+1;
+//		for(int i = 1; i < cnt; i++)
+//			sb.append(i).append("\n");
+//		System.out.println(sb);
 		
 		
 		//세 수
