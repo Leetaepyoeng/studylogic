@@ -7,8 +7,9 @@ import java.util.Stack;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		//
-		
+		//별 찍기 - 3
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
 		
 		
 		
