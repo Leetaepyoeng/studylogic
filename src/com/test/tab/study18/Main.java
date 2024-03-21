@@ -3,28 +3,83 @@ package com.test.tab.study18;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Stack;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
+		//
+		
+		
+		
+		
+		//스택
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringBuilder sb = new StringBuilder();
+//		int cnt = Integer.parseInt(br.readLine());
+//		Stack<Integer> list = new Stack<Integer>();
+//		for(int i = 0; i < cnt; i++) {
+//			String[] str = br.readLine().split(" ");
+//			switch (str[0]) {
+//			case "push":
+//				list.push(Integer.parseInt(str[1]));
+//				break;
+//			case "pop":
+//				if(list.empty())
+//					sb.append("-1\n");
+//				else
+//					sb.append(list.pop()).append("\n");
+//				break;
+//			case "size":
+//				sb.append(list.size()).append("\n");
+//				break;
+//			case "empty":
+//				if(list.empty())
+//					sb.append("1\n");
+//				else
+//					sb.append("0\n");
+//				break;
+//			case "top":
+//				if(list.empty())
+//					sb.append("-1\n");
+//				else
+//					sb.append(list.peek()).append("\n");
+//				break;
+//			default:
+//				break;
+//			}
+//		}
+//		System.out.println(sb);
+		
+		
+		
+		//기찍 N
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringBuilder sb = new StringBuilder();
+//		int cnt = Integer.parseInt(br.readLine());
+//		for(int i = cnt; i > 0; i--) 
+//			sb.append(i).append("\n");
+//		System.out.println(sb);
+		
+		
 		//OX퀴즈
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
-		int cnt = Integer.parseInt(br.readLine());
-		for(int i = 0; i < cnt; i++) {
-			String str = br.readLine();
-			int cnt2 = 0; // 연속횟수
-			int sum = 0; // 누적 합산
-			for(int x = 0; x < str.length(); x++) {
-				if (str.charAt(x) == 'O') {
-					cnt2++;
-					sum += cnt2;
-				} 
-				else
-					cnt2 = 0;
-			}
-			sb.append(sum).append("\n");
-		}
-		System.out.println(sb);
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringBuilder sb = new StringBuilder();
+//		int cnt = Integer.parseInt(br.readLine());
+//		for(int i = 0; i < cnt; i++) {
+//			String str = br.readLine();
+//			int cnt2 = 0; // 연속횟수1
+//			int sum = 0; // 누적 합산
+//			for(int x = 0; x < str.length(); x++) {
+//				if (str.charAt(x) == 'O') {
+//					cnt2++;
+//					sum += cnt2;
+//				} 
+//				else
+//					cnt2 = 0;
+//			}
+//			sb.append(sum).append("\n");
+//		}
+//		System.out.println(sb);
 		
 		
 		
