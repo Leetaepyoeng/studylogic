@@ -6,12 +6,23 @@ import java.io.InputStreamReader;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		//
+		//덩치
 		
 		
 		
 		
 		
+		//별 찍기 - 4
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		int cnt = Integer.parseInt(br.readLine());
+//		for(int i = 0; i < cnt; i++) {
+//			for(int x = 0; x < i; x++)
+//				System.out.print(" ");
+//			for(int y = cnt - i; y > 0 ; y--)
+//				System.out.print("*");
+//			System.out.println();
+//		}
+				
 		
 		//별 찍기 - 3
 //		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
