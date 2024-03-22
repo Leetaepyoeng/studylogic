@@ -6,9 +6,35 @@ import java.io.InputStreamReader;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
+		//음계
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String str = br.readLine().replace(" ", "");		
+		if(str.equals("12345678")) {
+			System.out.println("ascending");
+		} else if (str.equals("87654321")) {
+			System.out.println("descending");
+		} else
+			System.out.println("mixed");
+		
+		
 		//덩치
-		
-		
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringBuilder sb = new StringBuilder();
+//		int cnt = Integer.parseInt(br.readLine());
+//		int[][] arr = new int[cnt][2];
+//		for(int i = 0; i < cnt; i++) {
+//			String[] tokens = br.readLine().split(" ");
+//			arr[i][0] = Integer.parseInt(tokens[0]);
+//			arr[i][1] = Integer.parseInt(tokens[1]);
+//		}
+//		for(int i = 0; i < cnt; i++) {
+//			int rank = 1;
+//			for(int j = 0; j < cnt; j++)
+//				if(arr[i][0] < arr[j][0] && arr[i][1] < arr[j][1])
+//					rank++;
+//			sb.append(rank).append(" ");
+//		}
+//		System.out.println(sb);
 		
 		
 		
