@@ -1,15 +1,68 @@
 package com.test.tab.study18;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Deque;
 import java.util.LinkedList;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		//덱
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		int cnt = Integer.parseInt(br.readLine());
 		Deque<Integer> deq = new LinkedList<>();
-		deq.first
 		
+		for(int i = 0; i < cnt; i++) {
+			String[] str = br.readLine().split(" ");
+			
+			switch(str[0]) {
+			case "push_front":
+				deq.addFirst(Integer.parseInt(str[1]));
+				break;
+			case "push_back":
+				deq.addLast(Integer.parseInt(str[1]));
+				break;
+			case "pop_front":
+				if(deq.isEmpty())
+					sb.append("-1\n");
+				else
+					sb.append(deq.pollFirst()).append("\n");
+				break;
+			case "pop_back":
+				if(deq.isEmpty())
+					sb.append("-1\n");
+				else
+					sb.append(deq.pollLast()).append("\n");
+				break;
+			case "size":
+				sb.append(deq.size()).append("\n");
+				break;
+			case "empty":
+				if(deq.isEmpty())
+					sb.append("1\n");
+				else
+					sb.append("0\n");
+				break;
+			case "front":
+				if(deq.isEmpty())
+					sb.append("-1\n");
+				else
+					sb.append(deq.getFirst()).append("\n");
+				break;
+			case "back":
+				if(deq.isEmpty())
+					sb.append("-1\n");
+				else
+					sb.append(deq.getLast()).append("\n");
+				break;
+			default:
+				break;
+			}
+		}
+		
+		System.out.println(sb);
 		
 		
 		//음계
