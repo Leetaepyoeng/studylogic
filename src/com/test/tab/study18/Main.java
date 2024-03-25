@@ -3,39 +3,72 @@ package com.test.tab.study18;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		//경비원
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		int nWidth = Integer.parseInt(st.nextToken());
-		int nHeight = Integer.parseInt(st.nextToken());
-		int cnt = Integer.parseInt(br.readLine());
-		int total = (nWidth+nHeight) *2;
-		int[] placeStore = new int[cnt + 1];
+		//상금 헌터
 		
-		for(int i = 0; i < cnt + 1; i++) {
-			st = new StringTokenizer(br.readLine());
-			int b = Integer.parseInt(st.nextToken());
-			int s = Integer.parseInt(st.nextToken());
-			if(b == 1)
-				placeStore[i] = s;
-			else if(b == 2)
-				placeStore[i] = nWidth + nHeight + nWidth - s;
-			else if(b == 3)
-				placeStore[i] = total - s;
-			else
-				placeStore[i] = nWidth + s;
-		}
-		int sum = 0;
-		for(int i = 0; i < cnt; i++) {
-			int n1 = Math.abs(placeStore[cnt] - placeStore[i]);
-			int n2 = total - n1;
-			sum += Math.min(n1, n2);
-		}
-		System.out.println(sum);
+		
+		
+		
+		
+		
+		
+		//공백 없는 A+B
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		String str = br.readLine();
+//		int num1 = 0;
+//		int num2 = 0;
+//		if(str.length() == 4) {
+//			num1 = Integer.parseInt(String.valueOf(str.charAt(0))) * 10;
+//			num2 = Integer.parseInt(String.valueOf(str.charAt(2))) * 10;
+//		} else if (str.length() == 3) {
+//			if(str.charAt(1) == '0') {
+//				num1 = Integer.parseInt(String.valueOf(str.charAt(0))) * 10;
+//				num2 = Integer.parseInt(String.valueOf(str.charAt(2)));
+//			}
+//			else {
+//				num1 = Integer.parseInt(String.valueOf(str.charAt(0)));
+//				num2 = Integer.parseInt(String.valueOf(str.charAt(1))) * 10;
+//			}
+//		}
+//		else {
+//			num1 = Integer.parseInt(String.valueOf(str.charAt(0)));
+//			num2 = Integer.parseInt(String.valueOf(str.charAt(1)));
+//		}
+//		System.out.println(num1+num2);
+		
+		
+		
+		//경비원
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		int nWidth = Integer.parseInt(st.nextToken());
+//		int nHeight = Integer.parseInt(st.nextToken());
+//		int cnt = Integer.parseInt(br.readLine());
+//		int total = (nWidth+nHeight) *2;
+//		int[] placeStore = new int[cnt + 1];
+//		
+//		for(int i = 0; i < cnt + 1; i++) {
+//			st = new StringTokenizer(br.readLine());
+//			int b = Integer.parseInt(st.nextToken());
+//			int s = Integer.parseInt(st.nextToken());
+//			if(b == 1)
+//				placeStore[i] = s;
+//			else if(b == 2)
+//				placeStore[i] = nWidth + nHeight + nWidth - s;
+//			else if(b == 3)
+//				placeStore[i] = total - s;
+//			else
+//				placeStore[i] = nWidth + s;
+//		}
+//		int sum = 0;
+//		for(int i = 0; i < cnt; i++) {
+//			int n1 = Math.abs(placeStore[cnt] - placeStore[i]);
+//			int n2 = total - n1;
+//			sum += Math.min(n1, n2);
+//		}
+//		System.out.println(sum);
 		
 		
 		//덱
