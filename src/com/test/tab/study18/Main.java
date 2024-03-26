@@ -3,13 +3,49 @@ package com.test.tab.study18;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		//상금 헌터
-		
-		
-		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		int cnt = Integer.parseInt(br.readLine());
+		int sum = 0;
+		for(int i = 0; i < cnt; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			int fstNum = Integer.parseInt(st.nextToken());
+			int secNum = Integer.parseInt(st.nextToken());
+			sum = 0;
+			if(fstNum == 1) {
+				sum += 5000000;
+			} else if(1 < fstNum && fstNum <= 3) {
+				sum += 3000000;
+			} else if(3 < fstNum && fstNum <= 6) {
+				sum += 2000000;
+			} else if(6 < fstNum && fstNum <= 10) {
+				sum += 500000;
+			} else if(10 < fstNum && fstNum <= 15) {
+				sum += 300000;
+			} else if(15 < fstNum && fstNum <= 21) {
+				sum += 100000;
+			}
+			
+			if (secNum == 1) {
+				sum += 5120000;
+			} else if(1 < secNum && secNum <= 3) {
+				sum += 2560000;
+			} else if(3 < secNum && secNum <= 7) {
+				sum += 1280000;
+			} else if(7 < secNum && secNum <= 15) {
+				sum += 640000;
+			} else if(15 < secNum && secNum <= 31) {
+				sum += 320000;
+			}
+			
+			sb.append(sum).append("\n");
+		}
+		System.out.println(sb);
 		
 		
 		
