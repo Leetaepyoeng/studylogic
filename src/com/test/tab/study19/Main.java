@@ -3,55 +3,80 @@ package com.test.tab.study19;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
 //시뮬레이션
 public class Main {
 	public static void main(String[] args) throws IOException {
-		//트럭 주차, [contains():리스트에 특정 값이 있는지 확인]
+		//공
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		int a = Integer.parseInt(st.nextToken());
-		int b = Integer.parseInt(st.nextToken());
-		int c = Integer.parseInt(st.nextToken());
-		int stt = 100;
-		int end = 0;
-		int price = 0;
-		List<Integer>[] list = new ArrayList[3];
+		int cnt = Integer.parseInt(br.readLine());
+		boolean[] b = new boolean[3];
+		b[0] = true;
 		
-		
-		for(int i = 0; i < 3; i++) {
-			list[i] = new ArrayList<>();
-			st = new StringTokenizer(br.readLine());
-			int sttNew = Integer.parseInt(st.nextToken());
-			int endNew = Integer.parseInt(st.nextToken());
-			if(stt > sttNew)
-				stt = sttNew;
-			if(end < endNew)
-				end = endNew;
-			for(int j = sttNew; j < endNew; j++)
-				list[i].add(j);
-		}
-		
-		for(int i = stt; i < end; i++) {
-			if(list[0].contains(i) && list[1].contains(i) && list[2].contains(i)) {
-				price += (c * 3);
-			}
-			else if((list[0].contains(i) && list[1].contains(i)) 
-					|| (list[0].contains(i) && list[2].contains(i)) 
-					|| (list[1].contains(i) && list[2].contains(i))) {
-				price += (b * 2);
-			}
-			else if(list[0].contains(i) || list[1].contains(i) || list[2].contains(i)){
-				price += a;
-			}
-			else {
-				;
+		for(int i = 0; i < cnt; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			int fb = Integer.parseInt(st.nextToken());
+			int sb = Integer.parseInt(st.nextToken());
+			
+			if(b[fb-1] == true) {
+				b[fb-1] = false;
+				b[sb-1] = true;
+			} else if (b[sb-1] == true){
+				b[sb-1] = false;
+				b[fb-1] = true;
 			}
 		}
-		System.out.println(price);
+		if(b[0] == true)
+			System.out.println(1);
+		else if(b[1] == true)
+			System.out.println(2);
+		else if(b[2] == true)
+			System.out.println(3);
+		else
+			System.out.println(-1);
+		
+		
+		//트럭 주차, [contains():리스트에 특정 값이 있는지 확인]
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		int a = Integer.parseInt(st.nextToken());
+//		int b = Integer.parseInt(st.nextToken());
+//		int c = Integer.parseInt(st.nextToken());
+//		int stt = 100;
+//		int end = 0;
+//		int price = 0;
+//		List<Integer>[] list = new ArrayList[3];
+//		for(int i = 0; i < 3; i++) {
+//			list[i] = new ArrayList<>();
+//			st = new StringTokenizer(br.readLine());
+//			int sttNew = Integer.parseInt(st.nextToken());
+//			int endNew = Integer.parseInt(st.nextToken());
+//			if(stt > sttNew)
+//				stt = sttNew;
+//			if(end < endNew)
+//				end = endNew;
+//			for(int j = sttNew; j < endNew; j++)
+//				list[i].add(j);
+//		}
+//		
+//		for(int i = stt; i < end; i++) {
+//			if(list[0].contains(i) && list[1].contains(i) && list[2].contains(i)) {
+//				price += (c * 3);
+//			}
+//			else if((list[0].contains(i) && list[1].contains(i)) 
+//					|| (list[0].contains(i) && list[2].contains(i)) 
+//					|| (list[1].contains(i) && list[2].contains(i))) {
+//				price += (b * 2);
+//			}
+//			else if(list[0].contains(i) || list[1].contains(i) || list[2].contains(i)){
+//				price += a;
+//			}
+//			else {
+//				;
+//			}
+//		}
+//		System.out.println(price);
 		
 		
 		
