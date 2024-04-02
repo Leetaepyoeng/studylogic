@@ -8,33 +8,61 @@ import java.util.StringTokenizer;
 //시뮬레이션
 public class Main {
 	public static void main(String[] args) throws IOException {
-		//공
+		//나무 조각
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int cnt = Integer.parseInt(br.readLine());
-		boolean[] b = new boolean[3];
-		b[0] = true;
+		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		for(int i = 0; i < cnt; i++) {
-			StringTokenizer st = new StringTokenizer(br.readLine());
-			int fb = Integer.parseInt(st.nextToken());
-			int sb = Integer.parseInt(st.nextToken());
-			
-			if(b[fb-1] == true) {
-				b[fb-1] = false;
-				b[sb-1] = true;
-			} else if (b[sb-1] == true){
-				b[sb-1] = false;
-				b[fb-1] = true;
+		int[] arr = new int[5];
+		for(int i = 0; i < 5; i++)
+			arr[i] = Integer.parseInt(st.nextToken());
+		
+		while(true) {
+			for(int i = 0; i < 4; i++) {
+				StringBuilder sb = new StringBuilder();
+				if(arr[i] > arr[i+1]) {
+					int temp = arr[i];
+					arr[i] = arr[i+1];
+					arr[i+1] = temp;
+					for (int j = 0; j < 5; j++)
+						sb.append(arr[j]).append(" ");
+					
+					System.out.println(sb);
+				}
 			}
+			
+			if(arr[0] == 1 && arr[1] == 2 && arr[2] == 3 && arr[3] == 4)
+				break;;
 		}
-		if(b[0] == true)
-			System.out.println(1);
-		else if(b[1] == true)
-			System.out.println(2);
-		else if(b[2] == true)
-			System.out.println(3);
-		else
-			System.out.println(-1);
+		
+		
+		
+		//공
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		int cnt = Integer.parseInt(br.readLine());
+//		boolean[] b = new boolean[3];
+//		b[0] = true;
+//		
+//		for(int i = 0; i < cnt; i++) {
+//			StringTokenizer st = new StringTokenizer(br.readLine());
+//			int fb = Integer.parseInt(st.nextToken());
+//			int sb = Integer.parseInt(st.nextToken());
+//			
+//			if(b[fb-1] == true) {
+//				b[fb-1] = false;
+//				b[sb-1] = true;
+//			} else if (b[sb-1] == true){
+//				b[sb-1] = false;
+//				b[fb-1] = true;
+//			}
+//		}
+//		if(b[0] == true)
+//			System.out.println(1);
+//		else if(b[1] == true)
+//			System.out.println(2);
+//		else if(b[2] == true)
+//			System.out.println(3);
+//		else
+//			System.out.println(-1);
 		
 		
 		//트럭 주차, [contains():리스트에 특정 값이 있는지 확인]
