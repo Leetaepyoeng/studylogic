@@ -3,36 +3,52 @@ package com.test.tab.study19;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 //시뮬레이션
 public class Main {
 	public static void main(String[] args) throws IOException {
-		//나무 조각
+		//전자레인지
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
+		int srcTemp = Integer.parseInt(br.readLine());
+		int dstTemp = Integer.parseInt(br.readLine());
+		int timeIce = Integer.parseInt(br.readLine());
+		int timeDefrost = Integer.parseInt(br.readLine());
+		int timeHot = Integer.parseInt(br.readLine());
+		int sum = 0;
+		if(srcTemp > 0)
+			sum = timeHot * (dstTemp-srcTemp);
+		else if(srcTemp == 0) 
+			sum = timeDefrost + (timeHot * (dstTemp-srcTemp));
+		else 
+			sum = (Math.abs(srcTemp) * timeIce) + timeDefrost + (timeHot * dstTemp);
+		System.out.println(sum);
 		
-		int[] arr = new int[5];
-		for(int i = 0; i < 5; i++)
-			arr[i] = Integer.parseInt(st.nextToken());
 		
-		while(true) {
-			for(int i = 0; i < 4; i++) {
-				StringBuilder sb = new StringBuilder();
-				if(arr[i] > arr[i+1]) {
-					int temp = arr[i];
-					arr[i] = arr[i+1];
-					arr[i+1] = temp;
-					for (int j = 0; j < 5; j++)
-						sb.append(arr[j]).append(" ");
-					
-					System.out.println(sb);
-				}
-			}
-			
-			if(arr[0] == 1 && arr[1] == 2 && arr[2] == 3 && arr[3] == 4)
-				break;;
-		}
+		//나무 조각
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		StringTokenizer st = new StringTokenizer(br.readLine());
+//		
+//		int[] arr = new int[5];
+//		for(int i = 0; i < 5; i++)
+//			arr[i] = Integer.parseInt(st.nextToken());
+//		
+//		while(true) {
+//			for(int i = 0; i < 4; i++) {
+//				StringBuilder sb = new StringBuilder();
+//				if(arr[i] > arr[i+1]) {
+//					int temp = arr[i];
+//					arr[i] = arr[i+1];
+//					arr[i+1] = temp;
+//					for (int j = 0; j < 5; j++)
+//						sb.append(arr[j]).append(" ");
+//					
+//					System.out.println(sb);
+//				}
+//			}
+//			
+//			if(arr[0] == 1 && arr[1] == 2 && arr[2] == 3 && arr[3] == 4)
+//				break;;
+//		}
 		
 		
 		
