@@ -3,25 +3,49 @@ package com.test.tab.study19;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 //시뮬레이션
 public class Main {
 	public static void main(String[] args) throws IOException {
-		//전자레인지
+		//수 찾기
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int srcTemp = Integer.parseInt(br.readLine());
-		int dstTemp = Integer.parseInt(br.readLine());
-		int timeIce = Integer.parseInt(br.readLine());
-		int timeDefrost = Integer.parseInt(br.readLine());
-		int timeHot = Integer.parseInt(br.readLine());
-		int sum = 0;
-		if(srcTemp > 0)
-			sum = timeHot * (dstTemp-srcTemp);
-		else if(srcTemp == 0) 
-			sum = timeDefrost + (timeHot * (dstTemp-srcTemp));
-		else 
-			sum = (Math.abs(srcTemp) * timeIce) + timeDefrost + (timeHot * dstTemp);
-		System.out.println(sum);
+		StringBuilder sb = new StringBuilder();
+		int cnt = Integer.parseInt(br.readLine());
+		ArrayList<String> srcList = new ArrayList<>();
+		
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		for(int i = 0; i < cnt; i++)
+			srcList.add(st.nextToken());
+		
+		cnt = Integer.parseInt(br.readLine());
+		st = new StringTokenizer(br.readLine());
+		for(int i = 0; i < cnt; i++)
+			if(srcList.contains(st.nextToken())) {
+				sb.append(1).append("\n");
+			}else {
+				sb.append(0).append("\n");
+			}
+		System.out.println(sb);
+		
+		
+		//전자레인지
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		int srcTemp = Integer.parseInt(br.readLine());
+//		int dstTemp = Integer.parseInt(br.readLine());
+//		int timeIce = Integer.parseInt(br.readLine());
+//		int timeDefrost = Integer.parseInt(br.readLine());
+//		int timeHot = Integer.parseInt(br.readLine());
+//		int sum = 0;
+//		if(srcTemp > 0)
+//			sum = timeHot * (dstTemp-srcTemp);
+//		else if(srcTemp == 0) 
+//			sum = timeDefrost + (timeHot * (dstTemp-srcTemp));
+//		else 
+//			sum = (Math.abs(srcTemp) * timeIce) + timeDefrost + (timeHot * dstTemp);
+//		System.out.println(sum);
+
 		
 		
 		//나무 조각
